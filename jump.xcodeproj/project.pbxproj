@@ -42,7 +42,7 @@
 		61EEA675264BB2CB00E04112 = {
 			isa = PBXGroup;
 			children = (
-				61EEA680264BB2CB00E04112 /* jump */,
+				61EEA680264BB2CB00E04112 /* test */,
 				61EEA67F264BB2CB00E04112 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,19 +55,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		61EEA680264BB2CB00E04112 /* jump */ = {
+		61EEA680264BB2CB00E04112 /* test */ = {
 			isa = PBXGroup;
 			children = (
 				61EEA681264BB2CB00E04112 /* AppDelegate.swift */,
+				61EEA690264BB2CF00E04112 /* Info.plist */,
 				61EEA698264BB9B200E04112 /* GameScene.sks */,
 				61EEA685264BB2CB00E04112 /* Actions.sks */,
 				61EEA687264BB2CB00E04112 /* GameScene.swift */,
 				61EEA689264BB2CB00E04112 /* GameViewController.swift */,
 				61EEA68E264BB2CF00E04112 /* Assets.xcassets */,
-				61EEA690264BB2CF00E04112 /* Info.plist */,
 				61857AC4264BEED6000B30FE /* Main.storyboard */,
 			);
-			path = jump;
+			path = test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

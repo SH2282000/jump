@@ -76,9 +76,7 @@ class GameScene: SKScene {
                 if let player = self.player {
                     self.xAcc! >= 0 ? player.run(SKAction.scaleX(to: 0.1, duration: 0.1)) : player.run(SKAction.scaleX(to: -0.1, duration: 0.1))
                     
-                    if self.xAcc! > 1 {
-                        self.restartPosition()
-                    }
+                    //if self.xAcc! > 1 { self.restartPosition() }
                     print(self.xAcc!)
                 }
              }
@@ -88,6 +86,7 @@ class GameScene: SKScene {
           RunLoop.current.add(self.timer!, forMode: .default)
        }
     }
+    
     func restartPosition() {
         print("restartPosition")
         if let player = self.player {
