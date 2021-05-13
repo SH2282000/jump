@@ -44,7 +44,7 @@
 		61EEA675264BB2CB00E04112 = {
 			isa = PBXGroup;
 			children = (
-				61EEA680264BB2CB00E04112 /* test */,
+				61EEA680264BB2CB00E04112 /* jump */,
 				61EEA67F264BB2CB00E04112 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,7 +57,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		61EEA680264BB2CB00E04112 /* test */ = {
+		61EEA680264BB2CB00E04112 /* jump */ = {
 			isa = PBXGroup;
 			children = (
 				61EEA681264BB2CB00E04112 /* AppDelegate.swift */,
@@ -288,7 +288,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5SF57WWKCK;
-				INFOPLIST_FILE = test/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/jump/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +307,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5SF57WWKCK;
-				INFOPLIST_FILE = test/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/jump/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
