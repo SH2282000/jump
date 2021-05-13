@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		61846DC0264C7C7D001C6D7B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = GameScene.sks; path = ../../GitHub/jump/test/GameScene.sks; sourceTree = "<group>"; };
+		61846DC0264C7C7D001C6D7B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = GameScene.sks; path = ../../GitHub/jump/jump/GameScene.sks; sourceTree = "<group>"; };
 		61846DC2264CA756001C6D7B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		61857AC5264BEED6000B30FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		61EEA67E264BB2CB00E04112 /* jump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jump.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,7 +44,7 @@
 		61EEA675264BB2CB00E04112 = {
 			isa = PBXGroup;
 			children = (
-				61EEA680264BB2CB00E04112 /* test */,
+				61EEA680264BB2CB00E04112 /* jump */,
 				61EEA67F264BB2CB00E04112 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,7 +57,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		61EEA680264BB2CB00E04112 /* test */ = {
+		61EEA680264BB2CB00E04112 /* jump */ = {
 			isa = PBXGroup;
 			children = (
 				61EEA681264BB2CB00E04112 /* AppDelegate.swift */,
@@ -70,7 +70,7 @@
 				61857AC4264BEED6000B30FE /* Main.storyboard */,
 				61846DC2264CA756001C6D7B /* Launch Screen.storyboard */,
 			);
-			path = test;
+			path = jump;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,7 +89,7 @@
 			dependencies = (
 			);
 			name = jump;
-			productName = test;
+			productName = jump;
 			productReference = 61EEA67E264BB2CB00E04112 /* jump.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -288,7 +288,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5SF57WWKCK;
-				INFOPLIST_FILE = test/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/jump/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +307,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5SF57WWKCK;
-				INFOPLIST_FILE = test/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/jump/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
