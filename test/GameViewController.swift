@@ -12,6 +12,7 @@ import GameplayKit
 class GameViewController: UIViewController {
 
     private var sceneNode: GameScene?
+    @IBOutlet weak var restartButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,11 @@ class GameViewController: UIViewController {
         }
     }
     
+    @IBAction func restart(_ sender: Any) {
+        sceneNode?.delete(self)
+        viewDidLoad()
+    }
+
     override var shouldAutorotate: Bool {
         return true
     }
