@@ -19,7 +19,7 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     private var batteryLoad : SKShapeNode?
     private var battery : SKNode?
-    private var player: SKNode?
+    private var player: Element?
     private var target: SKNode?
     private var ground: SKNode?
     private var restartButton: SKNode?
@@ -28,6 +28,7 @@ class GameScene: SKScene {
     private var yAcc: Double?
     private var zAcc: Double?
     private var counter = 0
+    
 
     let motion = CMMotionManager()
     
@@ -35,7 +36,7 @@ class GameScene: SKScene {
 
         self.lastUpdateTime = 0
         
-        self.player = self.childNode(withName: "//player")
+        player = Element(gameScene: self, withName: "sausage", size: CGSize(width: 160, height: 80))
         self.target = self.childNode(withName: "//coin")
         self.ground = self.childNode(withName: "//ground")
         self.restartButton = self.childNode(withName: "//restart")
@@ -59,39 +60,32 @@ class GameScene: SKScene {
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
         }
+        move()
     }
     
     func move(){
-       // Make sure the accelerometer hardware is available.
+       // Make sure the accelerometer hardware is available
        if self.motion.isAccelerometerAvailable {
         self.motion.accelerometerUpdateInterval = 1.0 / 60.0  // 60 Hz
           self.motion.startAccelerometerUpdates()
 
-          // Configure a timer to fetch the data.
+          // Configure a timer to fetch the data
         self.timer = Timer(fire: Date(), interval: (1.0/60.0),
                 repeats: true, block: { (timer) in
-             // Get the accelerometer data.
+             // Get the accelerometer data
              if let data = self.motion.accelerometerData {
                 self.xAcc = data.acceleration.x
                 self.yAcc = data.acceleration.y
                 self.zAcc = data.acceleration.z
 
-                // Use the accelerometer data in your app.
-                //print(x,y,z)
-                if let player = self.player {
-                    self.xAcc! >= 0 ? player.run(SKAction.scaleX(to: 0.09, duration: 0.1)) : player.run(SKAction.scaleX(to: -0.09, duration: 0.1))
-                    //print(self.scene!.anchorPoint.x, player.position.x/self.scene!.size.width+0.5, player.position.y/self.scene!.size.height+0.9)
-                    self.scene!.anchorPoint.y = -(player.position.y/self.scene!.size.height)+0.2
-                    self.battery!.position.y = player.position.y + 640
+                if let player = self.player, let targetBody = self.target?.physicsBody, let battery = self.battery {
+                    player.centerScene()
+                    player.explodeContactedBodies(target: targetBody)
+                    //self.xAcc! >= 0 ? player.run(SKAction.scaleX(to: 0.09, duration: 0.1)) : player.run(SKAction.scaleX(to: -0.09, duration: 0.1))
 
-                    //print(player.physicsBody!.allContactedBodies().first!.velocity = CGVector(dx: 1, dy: 0))
-                    //self.scene!.anchorPoint.y = (player.position.y/self.scene!.size.height)+0.9
-                    
-                    for body: SKPhysicsBody in player.physicsBody!.allContactedBodies() {
-                    }
-                    
-                    //if self.xAcc! > 1 { self.restartPosition() }
-                    //print(self.xAcc!)
+                    //update battery position
+                    battery.position.y = player.getPosition().y + 640
+                    battery.position.x = player.getPosition().x - 140
                 }
              }
           })
@@ -101,21 +95,10 @@ class GameScene: SKScene {
        }
     }
     
-    func restartPosition() {
-        print("restartPosition")
-        if let player = self.player {
-            player.position = CGPoint(x: 0, y: -300)
-        }
-    }
-    
     func touchDown(atPoint pos : CGPoint) {
-        move()
-        
-        if let player = self.player {
-            if let xAcc = self.xAcc {
-                //player.run(SKAction.applyForce(CGVector(dx: xAcc/10, dy: 0.03), duration: 0.05))
-                player.physicsBody!.velocity = CGVector(dx: CGFloat(xAcc*1000), dy: CGFloat(1000))
-            }
+        if let player = self.player, let xAcc = self.xAcc {
+            player.move(withDirection: CGVector(dx: CGFloat(xAcc*1000),
+                                                dy: CGFloat(1000)))
         }
     }
     
@@ -131,33 +114,32 @@ class GameScene: SKScene {
         if let player = self.player {
             if let n = self.ground?.copy() as! SKNode? {
                 n.position.x = CGFloat.random(in: -500...500)
-                n.position.y = CGFloat.random(in: player.position.y+400...player.position.y+800)
+                n.position.y = CGFloat.random(in: player.getPosition().y + 400...player.getPosition().y + 800)
                 n.alpha = 0.0
-                n.run(SKAction.fadeIn(withDuration: 0.5))
+                n.run(SKAction.fadeIn(withDuration: 0.2))
                 n.run(SKAction.applyImpulse(CGVector(dx: 1, dy: 1), duration: 0.1))
                 n.physicsBody?.usesPreciseCollisionDetection = true
 
-                if(counter%3 == 0) { self.addChild(n) }
-                counter += 1
+                if(counter%4 == 0) { self.addChild(n) }
             }
             if let n = self.target?.copy() as! SKNode? {
                 n.position.x = CGFloat.random(in: -500...500)
-                n.position.y = CGFloat.random(in: player.position.y+400...player.position.y+800)
+                n.position.y = CGFloat.random(in: player.getPosition().y+400...player.getPosition().y+800)
                 n.alpha = 0.0
                 n.run(SKAction.fadeIn(withDuration: 0.5))
                 n.run(SKAction.applyImpulse(CGVector(dx: 1, dy: 1), duration: 0.1))
                 n.physicsBody?.usesPreciseCollisionDetection = true
 
                 if(counter%3 == 0) { self.addChild(n) }
-                counter += 1
             }
+            counter += 1
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
             self.touchDown(atPoint: t.location(in: self))
-            let location = t.location(in: self)
+            //let location = t.location(in: self)
             //let touchedNodes = nodes(at: location)
             //if(touchedNodes.first!.isEqual(to: restartButton!)) {restartPosition()}
         }
