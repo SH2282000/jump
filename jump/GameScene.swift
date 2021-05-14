@@ -19,10 +19,10 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     private var batteryLoad : SKShapeNode?
     private var battery : SKNode?
-    private var player: Element?
-    private var target: SKNode?
-    private var ground: SKNode?
-    private var restartButton: SKNode?
+    private var player: Player?
+    private var target: Element?
+    private var ground: Element?
+
     private var timer: Timer?
     private var xAcc: Double?
     private var yAcc: Double?
@@ -36,11 +36,9 @@ class GameScene: SKScene {
 
         self.lastUpdateTime = 0
         
-        player = Element(gameScene: self, withName: "sausage", size: CGSize(width: 160, height: 80))
-        self.target = self.childNode(withName: "//coin")
-        self.ground = self.childNode(withName: "//ground")
-        self.restartButton = self.childNode(withName: "//restart")
-        self.battery = self.childNode(withName: "//battery")
+        self.player = Player(gameScene: self, withName: "sausage", size: 0.2, initPosition: CGPoint(x: 0, y: -340))
+        self.target = Element(gameScene: self, withName: "coin", size: 0.2, initPosition: CGPoint(x: 0, y: 200))
+        self.ground = Element(gameScene: self, withName: "ground", size: 0.2, initPosition: CGPoint(x: 0, y: 300))
         
         for children in self.children {
             children.alpha = 0.0
@@ -78,14 +76,12 @@ class GameScene: SKScene {
                 self.yAcc = data.acceleration.y
                 self.zAcc = data.acceleration.z
 
-                if let player = self.player, let targetBody = self.target?.physicsBody, let battery = self.battery {
+                if let player = self.player, let target = self.target {
                     player.centerScene()
-                    player.explodeContactedBodies(target: targetBody)
+                    player.explodeContactedBodies(type: target)
                     //self.xAcc! >= 0 ? player.run(SKAction.scaleX(to: 0.09, duration: 0.1)) : player.run(SKAction.scaleX(to: -0.09, duration: 0.1))
 
                     //update battery position
-                    battery.position.y = player.getPosition().y + 640
-                    battery.position.x = player.getPosition().x - 140
                 }
              }
           })
@@ -113,7 +109,7 @@ class GameScene: SKScene {
     
     func touchUp(atPoint pos : CGPoint) {
         if let player = self.player {
-            if let n = self.ground?.copy() as! SKNode? {
+            if let n = self.ground?.graphic?.copy() as! SKNode? {
                 n.position.x = CGFloat.random(in: -500...500)
                 n.position.y = CGFloat.random(in: player.getPosition().y + 400...player.getPosition().y + 800)
                 n.alpha = 0.0
@@ -123,7 +119,7 @@ class GameScene: SKScene {
 
                 if(counter%4 == 0) { self.addChild(n) }
             }
-            if let n = self.target?.copy() as! SKNode? {
+            if let n = self.target?.graphic?.copy() as! SKNode? {
                 n.position.x = CGFloat.random(in: -500...500)
                 n.position.y = CGFloat.random(in: player.getPosition().y+400...player.getPosition().y+800)
                 n.alpha = 0.0

@@ -13,22 +13,23 @@ import CoreMotion
 class Element {
     var graphic: SKSpriteNode?
     var scene: GameScene?
-    var score = 0
-    var life = 100
+    var name: String?
     
-    init(gameScene: GameScene, withName name: String, size: CGSize) {
+    init(gameScene: GameScene, withName name: String, size: CGFloat, initPosition: CGPoint) {
         self.graphic = SKSpriteNode(imageNamed: name)
         self.scene = gameScene
+        self.name = name
         
         if let graphic = self.graphic, let scene = self.scene {
-            graphic.physicsBody = SKPhysicsBody(texture: graphic.texture!, size: size)
-            graphic.size = size
+            graphic.size.height *= size
+            graphic.size.width *= size
+            graphic.physicsBody = SKPhysicsBody(texture: graphic.texture!, size: graphic.size)
             graphic.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             graphic.physicsBody?.allowsRotation = true
-            graphic.physicsBody?.affectedByGravity = true
+            graphic.physicsBody?.affectedByGravity = false
             graphic.physicsBody?.isDynamic = true
-            graphic.physicsBody?.mass = 30
-            graphic.position = CGPoint(x: 0, y: -340)
+            graphic.physicsBody?.mass = (graphic.size.height+graphic.size.width)/2
+            graphic.position = initPosition
             print("\(name) loaded successfully")
             scene.addChild(graphic)
         } else {print("error loading \(name)")}
@@ -60,12 +61,28 @@ class Element {
         print("no graphic found -> no position")
         return CGPoint(x: 0, y: 0)
     }
-    func explodeContactedBodies(target: SKPhysicsBody) {
+}
+
+class Player : Element {
+    var score = 0
+    var life = 100
+    
+    override init(gameScene: GameScene, withName name: String, size: CGFloat, initPosition: CGPoint) {
+        super.init(gameScene: gameScene, withName: name, size: size, initPosition: initPosition)
+        
+        if let graphic = self.graphic {
+            graphic.physicsBody?.affectedByGravity = true
+        } else {print("error loading \(name)")}
+    }
+    
+    func explodeContactedBodies(type target: Element) {
         if let bodies = self.graphic?.physicsBody?.allContactedBodies() {
             for body: SKPhysicsBody in bodies {
-                if (body.isEqual(target)) {
+                print(body.node?.name ?? "no name")
+                if (body.node?.name == target.name) {
                     body.node?.removeFromParent()
                     updateScore(offset: 1)
+                    bumb()
                 }
             }
         }
@@ -74,4 +91,5 @@ class Element {
         score += offset
         print("Score updates: \(score)")
     }
+
 }
