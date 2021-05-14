@@ -42,6 +42,17 @@ class Element {
     func move (withDirection direction: CGVector) {
         self.graphic?.physicsBody?.velocity = direction
     }
+    func bumb() {
+        if let action = SKAction(named: "Pulse"), let effect = SKEmitterNode(fileNamed: "bump.sks") {
+            self.graphic?.run(action)
+            effect.position = self.getPosition()
+            effect.numParticlesToEmit = 30
+            effect.targetNode = self.scene
+            self.scene?.addChild(effect)
+        } else {
+            print("Pulse or bump failed to load")
+        }
+    }
     func getPosition() -> CGPoint {
         if let position = self.graphic?.position {
             return position

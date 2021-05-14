@@ -99,6 +99,7 @@ class GameScene: SKScene {
         if let player = self.player, let xAcc = self.xAcc {
             player.move(withDirection: CGVector(dx: CGFloat(xAcc*1000),
                                                 dy: CGFloat(1000)))
+            player.bumb()
         }
     }
     

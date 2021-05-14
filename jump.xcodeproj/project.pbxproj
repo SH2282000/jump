@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		61846DC3264CA756001C6D7B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61846DC2264CA756001C6D7B /* Launch Screen.storyboard */; };
+		61543E89264E790B0001284B /* bump.sks in Resources */ = {isa = PBXBuildFile; fileRef = 61543E88264E790B0001284B /* bump.sks */; };
 		61857AC6264BEED6000B30FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61857AC4264BEED6000B30FE /* Main.storyboard */; };
 		61C73397264D499900AAF488 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 61C73396264D499900AAF488 /* GameScene.sks */; };
 		61C73399264D52F800AAF488 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C73398264D52F800AAF488 /* Model.swift */; };
@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		61846DC2264CA756001C6D7B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		61543E88264E790B0001284B /* bump.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = bump.sks; sourceTree = "<group>"; };
 		61857AC5264BEED6000B30FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		61C73396264D499900AAF488 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		61C73398264D52F800AAF488 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 				61C73398264D52F800AAF488 /* Model.swift */,
 				61EEA68E264BB2CF00E04112 /* Assets.xcassets */,
 				61857AC4264BEED6000B30FE /* Main.storyboard */,
-				61846DC2264CA756001C6D7B /* Launch Screen.storyboard */,
+				61543E88264E790B0001284B /* bump.sks */,
 			);
 			path = jump;
 			sourceTree = "<group>";
@@ -135,7 +135,7 @@
 			files = (
 				61EEA68F264BB2CF00E04112 /* Assets.xcassets in Resources */,
 				61EEA686264BB2CB00E04112 /* Actions.sks in Resources */,
-				61846DC3264CA756001C6D7B /* Launch Screen.storyboard in Resources */,
+				61543E89264E790B0001284B /* bump.sks in Resources */,
 				61857AC6264BEED6000B30FE /* Main.storyboard in Resources */,
 				61C73397264D499900AAF488 /* GameScene.sks in Resources */,
 			);
@@ -297,6 +297,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.12;
 				PRODUCT_BUNDLE_IDENTIFIER = SHANNAX.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -316,6 +317,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.12;
 				PRODUCT_BUNDLE_IDENTIFIER = SHANNAX.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
