@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s0H-ib-1fQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -11,7 +11,7 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="jump" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameVC" id="BV1-FR-VrT" customClass="GameViewController" customModule="jump" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,9 +43,70 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="85.714285714285708"/>
         </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="e6b-Zn-fSa">
+            <objects>
+                <viewController storyboardIdentifier="MenuVC" id="s0H-ib-1fQ" customClass="MenuViewController" customModule="jump" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="05a-mv-Xy7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMn-Hz-GcT">
+                                <rect key="frame" x="148" y="528.5" width="118" height="86.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ZMn-Hz-GcT" secondAttribute="height" multiplier="79:58" id="rKc-59-1SB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="57"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="play:" destination="s0H-ib-1fQ" eventType="touchUpInside" id="aq2-O8-SeI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0G-9F-Maa">
+                                <rect key="frame" x="22" y="69" width="370" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="h0G-9F-Maa" secondAttribute="height" multiplier="185:43" id="WQc-jc-UlU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="57"/>
+                                <state key="normal" title="Free Sausage">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="sausage" translatesAutoresizingMaskIntoConstraints="NO" id="udX-TX-zSJ">
+                                <rect key="frame" x="-619" y="155" width="1652" height="124"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="124" id="APP-0c-yKa"/>
+                                    <constraint firstAttribute="width" constant="1652" id="TYm-lu-xbs"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8FV-CK-P56"/>
+                        <color key="backgroundColor" red="0.039215687662363052" green="0.51764708757400513" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8FV-CK-P56" firstAttribute="bottom" secondItem="ZMn-Hz-GcT" secondAttribute="bottom" constant="247" id="3OH-3u-cPC"/>
+                            <constraint firstItem="ZMn-Hz-GcT" firstAttribute="centerX" secondItem="05a-mv-Xy7" secondAttribute="centerX" id="GiV-m3-kBJ"/>
+                            <constraint firstItem="udX-TX-zSJ" firstAttribute="top" secondItem="h0G-9F-Maa" secondAttribute="bottom" id="MAX-Pu-cPK"/>
+                            <constraint firstItem="h0G-9F-Maa" firstAttribute="top" secondItem="8FV-CK-P56" secondAttribute="top" constant="25" id="aZq-mJ-RmB"/>
+                            <constraint firstItem="h0G-9F-Maa" firstAttribute="centerX" secondItem="05a-mv-Xy7" secondAttribute="centerX" id="cpP-0P-4hR"/>
+                            <constraint firstItem="udX-TX-zSJ" firstAttribute="centerX" secondItem="h0G-9F-Maa" secondAttribute="centerX" id="d9Z-HF-odz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="logo" destination="udX-TX-zSJ" id="lKd-Qv-UmX"/>
+                        <outlet property="playButton" destination="ZMn-Hz-GcT" id="tME-il-72T"/>
+                        <outlet property="titleApp" destination="h0G-9F-Maa" id="q1P-69-m4I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4dU-JB-6GQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-630.43478260869574" y="85.714285714285708"/>
+        </scene>
     </scenes>
     <resources>
         <image name="restart" width="256" height="256"/>
+        <image name="sausage" width="640" height="320"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
