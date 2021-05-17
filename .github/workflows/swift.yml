@@ -13,8 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Run tests
-      run: xcodebuild test
     - name: Build tests
       run: xcodebuild build
     - name: Build clean
