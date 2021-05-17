@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		61543E89264E790B0001284B /* bump.sks in Resources */ = {isa = PBXBuildFile; fileRef = 61543E88264E790B0001284B /* bump.sks */; };
 		61543E95264E84040001284B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61543E93264E84040001284B /* Assets.xcassets */; };
+		61708959265328CB0014172F /* slimeSplash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 61708957265327110014172F /* slimeSplash.mp3 */; };
 		61857AC6264BEED6000B30FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61857AC4264BEED6000B30FE /* Main.storyboard */; };
 		61A646B326513F44003A2F71 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A646B226513F44003A2F71 /* MenuViewController.swift */; };
 		61C73397264D499900AAF488 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 61C73396264D499900AAF488 /* GameScene.sks */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		61543E88264E790B0001284B /* bump.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = bump.sks; sourceTree = "<group>"; };
 		61543E93264E84040001284B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		61708957265327110014172F /* slimeSplash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = slimeSplash.mp3; sourceTree = "<group>"; };
 		61857AC5264BEED6000B30FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		61A646B226513F44003A2F71 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		61C73396264D499900AAF488 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6170895A265329020014172F /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				61708957265327110014172F /* slimeSplash.mp3 */,
+			);
+			path = sound;
+			sourceTree = "<group>";
+		};
 		61EEA675264BB2CB00E04112 = {
 			isa = PBXGroup;
 			children = (
@@ -64,17 +74,18 @@
 		61EEA680264BB2CB00E04112 /* jump */ = {
 			isa = PBXGroup;
 			children = (
+				6170895A265329020014172F /* sound */,
 				61EEA681264BB2CB00E04112 /* AppDelegate.swift */,
-				61EEA690264BB2CF00E04112 /* Info.plist */,
 				61EEA685264BB2CB00E04112 /* Actions.sks */,
 				61C73396264D499900AAF488 /* GameScene.sks */,
+				61EEA687264BB2CB00E04112 /* GameScene.swift */,
 				61A646B226513F44003A2F71 /* MenuViewController.swift */,
 				61EEA689264BB2CB00E04112 /* GameViewController.swift */,
-				61EEA687264BB2CB00E04112 /* GameScene.swift */,
 				61C73398264D52F800AAF488 /* Model.swift */,
 				61857AC4264BEED6000B30FE /* Main.storyboard */,
 				61543E88264E790B0001284B /* bump.sks */,
 				61543E93264E84040001284B /* Assets.xcassets */,
+				61EEA690264BB2CF00E04112 /* Info.plist */,
 			);
 			path = jump;
 			sourceTree = "<group>";
@@ -140,6 +151,7 @@
 				61543E89264E790B0001284B /* bump.sks in Resources */,
 				61857AC6264BEED6000B30FE /* Main.storyboard in Resources */,
 				61C73397264D499900AAF488 /* GameScene.sks in Resources */,
+				61708959265328CB0014172F /* slimeSplash.mp3 in Resources */,
 				61543E95264E84040001284B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

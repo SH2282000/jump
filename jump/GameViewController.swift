@@ -62,4 +62,20 @@ class GameViewController: UIViewController {
         menuVC.modalTransitionStyle = .crossDissolve
         present(menuVC, animated: true)
     }
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .portrait
+        } else {
+            return .all
+        }
+    }
+
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }

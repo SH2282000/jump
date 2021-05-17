@@ -35,9 +35,13 @@ class Element {
         } else {print("error loading \(name)")}
     }
     func centerScene() {
-        if let scene = self.scene, let graphic = self.graphic {
-            scene.anchorPoint.x = -(graphic.position.x/scene.size.width)+0.5
-            scene.anchorPoint.y = -(graphic.position.y/scene.size.height)+0.2
+        if let scene = self.scene {
+            let y = -(self.getPosition().y/scene.size.height)
+            let x = -(self.getPosition().x/scene.size.width)
+            scene.anchorPoint.y = y+0.2 //offset
+            scene.anchorPoint.x = x+0.5
+            
+            scene.backgroundColor = UIColor(cgColor: CGColor(red: 0, green: (y/10)+0.48, blue: (y/10)+1, alpha: 1))
         }
     }
     func move (withDirection direction: CGVector) {
@@ -72,11 +76,17 @@ class Player : Element {
         
         if let graphic = self.graphic {
             graphic.physicsBody?.affectedByGravity = true
-        } else {print("error loading \(name)")}
+            
+        } else {print("error loading \(name) components")}
     }
     
+    override func move(withDirection direction: CGVector) {
+        super.move(withDirection: direction)
+        self.graphic?.run(SKAction.playSoundFileNamed("slimeSplash.mp3", waitForCompletion: false))
+    }
     func explodeContactedBodies(type target: Element) {
         if let bodies = self.graphic?.physicsBody?.allContactedBodies() {
+            
             for body: SKPhysicsBody in bodies {
                 //print(body.node?.name ?? "no name")
                 if (body.node?.name == target.name) {

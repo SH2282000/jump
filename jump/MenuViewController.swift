@@ -52,7 +52,7 @@ class MenuViewController: UIViewController {
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
-            return .portrait
+            return .portrait.union(.portraitUpsideDown)
         } else {
             return .all
         }

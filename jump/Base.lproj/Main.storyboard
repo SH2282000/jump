@@ -40,7 +40,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
-                        <color key="backgroundColor" red="0.039215687659999998" green="0.5176470876" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="a9D-Kx-4Js" secondAttribute="trailing" constant="20" id="1Le-FA-W9W"/>
                             <constraint firstItem="Sd4-kQ-BRJ" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="ETU-Ic-eJt"/>

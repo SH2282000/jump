@@ -15,10 +15,9 @@ class GameScene: SKScene {
     var graphs = [String : GKGraph]()
     
     private var lastUpdateTime : TimeInterval = 0
-    private var label : SKLabelNode?
+    
     private var spinnyNode : SKShapeNode?
-    private var batteryLoad : SKShapeNode?
-    private var battery : SKNode?
+    private var label : SKLabelNode?
     private var player: Player?
     private var target: Element?
     private var ground: Element?
@@ -36,17 +35,20 @@ class GameScene: SKScene {
 
         self.lastUpdateTime = 0
         
-        self.player = Player(gameScene: self, withName: "sausage", size: 0.2, initPosition: CGPoint(x: 0, y: -340))
-        self.target = Element(gameScene: self, withName: "coin", size: 0.2, initPosition: CGPoint(x: 0, y: 200))
-        self.ground = Element(gameScene: self, withName: "ground", size: 0.2, initPosition: CGPoint(x: 0, y: 300))
+        self.player = Player(gameScene: self, withName: "sausage", size: 0.15, initPosition: CGPoint(x: 0, y: -300))
+        self.target = Element(gameScene: self, withName: "coin", size: 0.1, initPosition: CGPoint(x: 0, y: 200))
+        self.ground = Element(gameScene: self, withName: "ground", size: 0.3, initPosition: CGPoint(x: 0, y: 300))
         
-        for children in self.children {
-            children.alpha = 0.0
-            children.run(SKAction.fadeIn(withDuration: 2.0))
-            children.physicsBody?.usesPreciseCollisionDetection = true
+        self.label = SKLabelNode(fontNamed: "Chalkduster")
+
+        if let label = self.label {
+            label.text = "X Position"
+            label.fontSize = 55
+            label.fontColor = SKColor.white
+            self.addChild(label)
         }
         
-        // Create shape node to use during mouse interaction
+        // Create shape node to use during touch interaction
         let w = (self.size.width + self.size.height) * 0.05
         self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
         
@@ -76,12 +78,14 @@ class GameScene: SKScene {
                 self.yAcc = data.acceleration.y
                 self.zAcc = data.acceleration.z
 
-                if let player = self.player, let target = self.target {
+                if let player = self.player, let target = self.target, let label = self.label {
                     player.centerScene()
                     player.explodeContactedBodies(type: target)
                     //self.xAcc! >= 0 ? player.run(SKAction.scaleX(to: 0.09, duration: 0.1)) : player.run(SKAction.scaleX(to: -0.09, duration: 0.1))
 
-                    //update battery position
+                    //update label position on player position
+                    label.text = "y: \(Int(player.getPosition().y.rounded()))"
+                    label.position = CGPoint(x: player.getPosition().x, y: player.getPosition().y+200)
                 }
              }
           })
@@ -108,7 +112,7 @@ class GameScene: SKScene {
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        if let player = self.player {
+        /*if let player = self.player {
             if let n = self.ground?.graphic?.copy() as! SKNode? {
                 n.position.x = CGFloat.random(in: -500...500)
                 n.position.y = CGFloat.random(in: player.getPosition().y + 400...player.getPosition().y + 800)
@@ -130,7 +134,7 @@ class GameScene: SKScene {
                 if(counter%3 == 0) { self.addChild(n) }
             }
             counter += 1
-        }
+        }*/
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
