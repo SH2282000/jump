@@ -13,6 +13,7 @@ class GameViewController: UIViewController {
 
     private var sceneNode: GameScene?
     @IBOutlet weak var restartButton: UIButton!
+    @IBOutlet weak var pauseButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,5 +51,15 @@ class GameViewController: UIViewController {
     @IBAction func restart(_ sender: Any) {
         sceneNode?.delete(self)
         viewDidLoad()
+    }
+    
+    @IBAction func pause(_ sender: Any) {
+        guard let menuVC = storyboard?.instantiateViewController(identifier: "MenuVC") as? MenuViewController else {
+            print("cannot instantiate")
+            return
+        }
+        menuVC.modalPresentationStyle = .fullScreen
+        menuVC.modalTransitionStyle = .crossDissolve
+        present(menuVC, animated: true)
     }
 }

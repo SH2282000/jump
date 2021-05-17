@@ -78,7 +78,7 @@ class Player : Element {
     func explodeContactedBodies(type target: Element) {
         if let bodies = self.graphic?.physicsBody?.allContactedBodies() {
             for body: SKPhysicsBody in bodies {
-                print(body.node?.name ?? "no name")
+                //print(body.node?.name ?? "no name")
                 if (body.node?.name == target.name) {
                     body.node?.removeFromParent()
                     updateScore(offset: 1)
@@ -89,7 +89,7 @@ class Player : Element {
     }
     func updateScore(offset: Int) {
         score += offset
-        print("Score updates: \(score)")
+        //print("Score updates: \(score)")
     }
 
 }

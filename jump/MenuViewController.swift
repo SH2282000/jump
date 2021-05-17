@@ -11,7 +11,7 @@ class MenuViewController: UIViewController {
 
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var logo: UIImageView!
-    @IBOutlet weak var titleApp: UIButton!
+    @IBOutlet weak var titleApp: UILabel!
     
     
     override func viewDidLoad() {
@@ -23,12 +23,12 @@ class MenuViewController: UIViewController {
         self.logo.alpha = 0
         self.playButton.alpha = 0
         
-        let blur = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        let blur = UIBlurEffect(style: .light)
         let blurEffect = UIVisualEffectView(effect: blur)
         blurEffect.frame = self.view.bounds
         self.view.addSubview(blurEffect)
         
-        UIView.animate(withDuration: 2, animations: {
+        UIView.animate(withDuration: 1, animations: {
             self.titleApp.alpha  = 1.0
             self.logo.alpha = 1.0
             self.playButton.alpha = 1.0

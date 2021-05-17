@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,26 +15,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9D-Kx-4Js">
-                                <rect key="frame" x="335" y="35" width="59" height="59"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sd4-kQ-BRJ">
+                                <rect key="frame" x="20" y="44" width="59" height="59"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="59" id="Eqd-Zo-wwI"/>
-                                    <constraint firstAttribute="width" constant="59" id="Juz-Zk-nI7"/>
+                                    <constraint firstAttribute="width" secondItem="Sd4-kQ-BRJ" secondAttribute="height" multiplier="1:1" id="3e5-ak-e1m"/>
+                                    <constraint firstAttribute="width" secondItem="Sd4-kQ-BRJ" secondAttribute="height" multiplier="1:1" id="p68-0F-QdB"/>
+                                    <constraint firstAttribute="width" constant="59" id="sUZ-7v-5Tw"/>
                                 </constraints>
-                                <state key="normal" image="restart"/>
+                                <state key="normal" image="pauseButton"/>
+                                <connections>
+                                    <action selector="pause:" destination="BV1-FR-VrT" eventType="touchUpInside" id="jxc-i9-N1V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9D-Kx-4Js">
+                                <rect key="frame" x="335" y="44" width="59" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="1ot-ko-w3y"/>
+                                    <constraint firstAttribute="width" secondItem="a9D-Kx-4Js" secondAttribute="height" multiplier="1:1" id="qOm-fa-mtK"/>
+                                </constraints>
+                                <state key="normal" image="restartButton"/>
                                 <connections>
                                     <action selector="restart:" destination="BV1-FR-VrT" eventType="touchUpInside" id="hUr-7J-CbD"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.039215687659999998" green="0.5176470876" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="a9D-Kx-4Js" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="35" id="gsS-UR-FdU"/>
-                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="a9D-Kx-4Js" secondAttribute="trailing" constant="20" id="hX4-5h-ScB"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="a9D-Kx-4Js" secondAttribute="trailing" constant="20" id="1Le-FA-W9W"/>
+                            <constraint firstItem="Sd4-kQ-BRJ" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="ETU-Ic-eJt"/>
+                            <constraint firstItem="Sd4-kQ-BRJ" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="20" id="HCF-Fb-lb0"/>
+                            <constraint firstItem="a9D-Kx-4Js" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="InJ-Cd-dsu"/>
+                            <constraint firstItem="Sd4-kQ-BRJ" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="20" id="SXh-td-cq6"/>
+                            <constraint firstItem="Sd4-kQ-BRJ" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="gki-PK-LBo"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="pauseButton" destination="Sd4-kQ-BRJ" id="bIM-tz-iJS"/>
                         <outlet property="restartButton" destination="a9D-Kx-4Js" id="X6A-DS-9Wq"/>
                     </connections>
                 </viewController>
@@ -52,11 +68,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMn-Hz-GcT">
-                                <rect key="frame" x="148" y="528.5" width="118" height="86.5"/>
+                                <rect key="frame" x="129" y="500.5" width="156" height="114.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ZMn-Hz-GcT" secondAttribute="height" multiplier="79:58" id="rKc-59-1SB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="57"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="69"/>
                                 <state key="normal" title="Play">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -65,17 +81,17 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0G-9F-Maa">
-                                <rect key="frame" x="22" y="69" width="370" height="86"/>
+                                <rect key="frame" x="-83.5" y="69" width="581" height="135"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="h0G-9F-Maa" secondAttribute="height" multiplier="185:43" id="WQc-jc-UlU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="57"/>
-                                <state key="normal" title="Free Sausage">
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="100"/>
+                                <state key="normal" title="Jump">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="sausage" translatesAutoresizingMaskIntoConstraints="NO" id="udX-TX-zSJ">
-                                <rect key="frame" x="-619" y="155" width="1652" height="124"/>
+                                <rect key="frame" x="-619" y="204" width="1652" height="124"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="124" id="APP-0c-yKa"/>
                                     <constraint firstAttribute="width" constant="1652" id="TYm-lu-xbs"/>
@@ -104,11 +120,10 @@
             <point key="canvasLocation" x="-630.43478260869574" y="85.714285714285708"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
-        <image name="restart" width="256" height="256"/>
+        <image name="pauseButton" width="200" height="200"/>
+        <image name="restartButton" width="200" height="200"/>
         <image name="sausage" width="640" height="320"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
