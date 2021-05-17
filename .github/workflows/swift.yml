@@ -14,6 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build tests
-      run: xcodebuild build
+      run: xcodebuild build -allowProvisioningUpdates
     - name: Build clean
       run: xcodebuild clean
