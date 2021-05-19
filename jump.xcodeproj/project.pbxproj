@@ -14,11 +14,22 @@
 		61A646B326513F44003A2F71 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A646B226513F44003A2F71 /* MenuViewController.swift */; };
 		61C73397264D499900AAF488 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 61C73396264D499900AAF488 /* GameScene.sks */; };
 		61C73399264D52F800AAF488 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C73398264D52F800AAF488 /* Model.swift */; };
+		61D2C69B2654F55B000FA34C /* jumpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2C69A2654F55B000FA34C /* jumpUITests.swift */; };
 		61EEA682264BB2CB00E04112 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EEA681264BB2CB00E04112 /* AppDelegate.swift */; };
 		61EEA686264BB2CB00E04112 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 61EEA685264BB2CB00E04112 /* Actions.sks */; };
 		61EEA688264BB2CB00E04112 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EEA687264BB2CB00E04112 /* GameScene.swift */; };
 		61EEA68A264BB2CB00E04112 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EEA689264BB2CB00E04112 /* GameViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		61D2C69D2654F55B000FA34C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61EEA676264BB2CB00E04112 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61EEA67D264BB2CB00E04112;
+			remoteInfo = jump;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		61543E88264E790B0001284B /* bump.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = bump.sks; sourceTree = "<group>"; };
@@ -28,6 +39,9 @@
 		61A646B226513F44003A2F71 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		61C73396264D499900AAF488 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		61C73398264D52F800AAF488 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		61D2C6982654F55B000FA34C /* jumpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jumpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		61D2C69A2654F55B000FA34C /* jumpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jumpUITests.swift; sourceTree = "<group>"; };
+		61D2C69C2654F55B000FA34C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61EEA67E264BB2CB00E04112 /* jump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61EEA681264BB2CB00E04112 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61EEA685264BB2CB00E04112 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -37,6 +51,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		61D2C6952654F55B000FA34C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61EEA67B264BB2CB00E04112 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -55,10 +76,20 @@
 			path = sound;
 			sourceTree = "<group>";
 		};
+		61D2C6992654F55B000FA34C /* jumpUITests */ = {
+			isa = PBXGroup;
+			children = (
+				61D2C69A2654F55B000FA34C /* jumpUITests.swift */,
+				61D2C69C2654F55B000FA34C /* Info.plist */,
+			);
+			path = jumpUITests;
+			sourceTree = "<group>";
+		};
 		61EEA675264BB2CB00E04112 = {
 			isa = PBXGroup;
 			children = (
 				61EEA680264BB2CB00E04112 /* jump */,
+				61D2C6992654F55B000FA34C /* jumpUITests */,
 				61EEA67F264BB2CB00E04112 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				61EEA67E264BB2CB00E04112 /* jump.app */,
+				61D2C6982654F55B000FA34C /* jumpUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,6 +125,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		61D2C6972654F55B000FA34C /* jumpUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61D2C6A12654F55B000FA34C /* Build configuration list for PBXNativeTarget "jumpUITests" */;
+			buildPhases = (
+				61D2C6942654F55B000FA34C /* Sources */,
+				61D2C6952654F55B000FA34C /* Frameworks */,
+				61D2C6962654F55B000FA34C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				61D2C69E2654F55B000FA34C /* PBXTargetDependency */,
+			);
+			name = jumpUITests;
+			productName = jumpUITests;
+			productReference = 61D2C6982654F55B000FA34C /* jumpUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		61EEA67D264BB2CB00E04112 /* jump */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61EEA693264BB2CF00E04112 /* Build configuration list for PBXNativeTarget "jump" */;
@@ -119,6 +169,10 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					61D2C6972654F55B000FA34C = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 61EEA67D264BB2CB00E04112;
+					};
 					61EEA67D264BB2CB00E04112 = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -138,11 +192,19 @@
 			projectRoot = "";
 			targets = (
 				61EEA67D264BB2CB00E04112 /* jump */,
+				61D2C6972654F55B000FA34C /* jumpUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		61D2C6962654F55B000FA34C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61EEA67C264BB2CB00E04112 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -159,6 +221,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		61D2C6942654F55B000FA34C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61D2C69B2654F55B000FA34C /* jumpUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61EEA67A264BB2CB00E04112 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -173,6 +243,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		61D2C69E2654F55B000FA34C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 61EEA67D264BB2CB00E04112 /* jump */;
+			targetProxy = 61D2C69D2654F55B000FA34C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		61857AC4264BEED6000B30FE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -185,6 +263,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		61D2C69F2654F55B000FA34C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5SF57WWKCK;
+				INFOPLIST_FILE = jumpUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SHANNAX.jumpUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = jump;
+			};
+			name = Debug;
+		};
+		61D2C6A02654F55B000FA34C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5SF57WWKCK;
+				INFOPLIST_FILE = jumpUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SHANNAX.jumpUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = jump;
+			};
+			name = Release;
+		};
 		61EEA691264BB2CF00E04112 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -344,6 +460,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		61D2C6A12654F55B000FA34C /* Build configuration list for PBXNativeTarget "jumpUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61D2C69F2654F55B000FA34C /* Debug */,
+				61D2C6A02654F55B000FA34C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		61EEA679264BB2CB00E04112 /* Build configuration list for PBXProject "jump" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
