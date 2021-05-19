@@ -18,9 +18,11 @@ class GameScene: SKScene {
     
     private var spinnyNode : SKShapeNode?
     private var label : SKLabelNode?
+    private var starEffect: SKEmitterNode?
     private var player: Player?
     private var target: Element?
     private var ground: Element?
+    private var obstacleAltitude: [CGFloat] = []
 
     private var timer: Timer?
     private var xAcc: Double?
@@ -35,17 +37,24 @@ class GameScene: SKScene {
 
         self.lastUpdateTime = 0
         
+        
         self.player = Player(gameScene: self, withName: "sausage", size: 0.15, initPosition: CGPoint(x: 0, y: -300))
         self.target = Element(gameScene: self, withName: "coin", size: 0.1, initPosition: CGPoint(x: 0, y: 200))
-        self.ground = Element(gameScene: self, withName: "ground", size: 0.3, initPosition: CGPoint(x: 0, y: 300))
+        self.ground = Element(gameScene: self, withName: "ground", size: 0.3, initPosition: CGPoint(x: 0, y: -360))
+        self.obstacleAltitude.append((self.ground?.getPosition().y.rounded())!)
+        self.obstacleAltitude.append((self.target?.getPosition().y.rounded())!)
         
         self.label = SKLabelNode(fontNamed: "Chalkduster")
-
         if let label = self.label {
             label.text = "X Position"
             label.fontSize = 55
             label.fontColor = SKColor.white
             self.addChild(label)
+        }
+        self.starEffect = SKEmitterNode(fileNamed: "starSky.sks")
+        if let starEffect = self.starEffect {
+            starEffect.targetNode = self
+            self.addChild(starEffect)
         }
         
         // Create shape node to use during touch interaction
@@ -78,11 +87,20 @@ class GameScene: SKScene {
                 self.yAcc = data.acceleration.y
                 self.zAcc = data.acceleration.z
 
-                if let player = self.player, let target = self.target, let label = self.label {
-                    player.centerScene()
+                if let player = self.player, let target = self.target, let label = self.label, let ground = self.ground, let starEffect = self.starEffect {
+                    player.centerScene(starEffect: starEffect)
                     player.explodeContactedBodies(type: target)
                     //self.xAcc! >= 0 ? player.run(SKAction.scaleX(to: 0.09, duration: 0.1)) : player.run(SKAction.scaleX(to: -0.09, duration: 0.1))
-
+                    
+                    //create the map
+                    var i = CGFloat(0)
+                    while(i < player.getMaxAltitude()+500) {
+                        if(!self.obstacleAltitude.contains(i)) {
+                            ground.generateNew(altitude: i)
+                            self.obstacleAltitude.append(i)
+                        }
+                        i += 400
+                    }
                     //update label position on player position
                     label.text = "y: \(Int(player.getPosition().y.rounded()))"
                     label.position = CGPoint(x: player.getPosition().x, y: player.getPosition().y+200)
@@ -97,8 +115,8 @@ class GameScene: SKScene {
     
     func touchDown(atPoint pos : CGPoint) {
         if let player = self.player, let xAcc = self.xAcc {
-            player.move(withDirection: CGVector(dx: CGFloat(xAcc*1000),
-                                                dy: CGFloat(1000)))
+            let direction = CGVector(dx: CGFloat(xAcc*1000), dy: CGFloat(600))
+            player.move(withDirection: direction)
             player.bumb()
         }
     }
