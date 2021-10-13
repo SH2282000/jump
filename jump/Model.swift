@@ -45,7 +45,7 @@ class Element {
             scene.anchorPoint.y = y+0.2 //offset
             scene.anchorPoint.x = x+0.5
             
-            scene.backgroundColor = UIColor(cgColor: CGColor(red: 0, green: (y/30)+0.48, blue: (y/30)+1, alpha: 1))
+            scene.backgroundColor = UIColor(cgColor: CGColor(red: 0, green: (y/25)+0.48, blue: (y/25)+1, alpha: 1))
             
             starEffect.position.x = self.getPosition().x
             starEffect.position.y = self.getPosition().y + 500
@@ -79,7 +79,7 @@ class Element {
 
 class Player : Element {
     var score = 0
-    var life = 100
+    var life = 50
     var tap = 0
     var maxAltitude = CGFloat(-500);
     
@@ -117,8 +117,9 @@ class Player : Element {
     func bumb() {
         if let action = SKAction(named: "Pulse"), let effect = SKEmitterNode(fileNamed: "bump.sks") {
             self.graphic?.run(action)
+            life -= tap/100
             effect.position = self.getPosition()
-            effect.numParticlesToEmit = 100-tap
+            effect.numParticlesToEmit = life
             effect.targetNode = self.scene
             self.scene?.addChild(effect)
         } else {

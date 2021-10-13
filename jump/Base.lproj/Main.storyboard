@@ -16,11 +16,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sd4-kQ-BRJ">
-                                <rect key="frame" x="20" y="44" width="59" height="59"/>
+                                <rect key="frame" x="20" y="64" width="59" height="59"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Sd4-kQ-BRJ" secondAttribute="height" multiplier="1:1" id="3e5-ak-e1m"/>
-                                    <constraint firstAttribute="width" secondItem="Sd4-kQ-BRJ" secondAttribute="height" multiplier="1:1" id="p68-0F-QdB"/>
-                                    <constraint firstAttribute="width" constant="59" id="sUZ-7v-5Tw"/>
+                                    <constraint firstAttribute="width" secondItem="Sd4-kQ-BRJ" secondAttribute="height" multiplier="1:1" id="Os7-KH-avZ"/>
+                                    <constraint firstAttribute="width" constant="59" id="t2a-Tj-lh4"/>
                                 </constraints>
                                 <state key="normal" image="pauseButton"/>
                                 <connections>
@@ -28,26 +27,33 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9D-Kx-4Js">
-                                <rect key="frame" x="335" y="44" width="59" height="59"/>
+                                <rect key="frame" x="335" y="64" width="59" height="59"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="59" id="1ot-ko-w3y"/>
-                                    <constraint firstAttribute="width" secondItem="a9D-Kx-4Js" secondAttribute="height" multiplier="1:1" id="qOm-fa-mtK"/>
+                                    <constraint firstAttribute="width" constant="59" id="1mf-QG-UMg"/>
+                                    <constraint firstAttribute="width" secondItem="a9D-Kx-4Js" secondAttribute="height" multiplier="1:1" id="I9k-rB-Ynw"/>
                                 </constraints>
                                 <state key="normal" image="restartButton"/>
                                 <connections>
                                     <action selector="restart:" destination="BV1-FR-VrT" eventType="touchUpInside" id="hUr-7J-CbD"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="lifeBar" translatesAutoresizingMaskIntoConstraints="NO" id="DeY-gA-tsP">
+                                <rect key="frame" x="-405" y="69" width="1224" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Sc0-Ri-7cv"/>
+                                    <constraint firstAttribute="width" secondItem="DeY-gA-tsP" secondAttribute="height" multiplier="136:5" id="bGu-qC-g7f"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="a9D-Kx-4Js" secondAttribute="trailing" constant="20" id="1Le-FA-W9W"/>
-                            <constraint firstItem="Sd4-kQ-BRJ" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="ETU-Ic-eJt"/>
-                            <constraint firstItem="Sd4-kQ-BRJ" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="20" id="HCF-Fb-lb0"/>
-                            <constraint firstItem="a9D-Kx-4Js" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="InJ-Cd-dsu"/>
-                            <constraint firstItem="Sd4-kQ-BRJ" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="20" id="SXh-td-cq6"/>
-                            <constraint firstItem="Sd4-kQ-BRJ" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="gki-PK-LBo"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="a9D-Kx-4Js" secondAttribute="trailing" constant="20" id="104-Cc-sj5"/>
+                            <constraint firstItem="DeY-gA-tsP" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="Jtr-8S-Wsp"/>
+                            <constraint firstItem="DeY-gA-tsP" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" constant="25" id="Kq2-f0-Yd8"/>
+                            <constraint firstItem="a9D-Kx-4Js" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" constant="20" id="cK3-ez-H6B"/>
+                            <constraint firstItem="Sd4-kQ-BRJ" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" constant="20" id="eql-Z8-e6D"/>
+                            <constraint firstItem="Sd4-kQ-BRJ" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="20" id="zfr-vm-EEL"/>
                         </constraints>
                     </view>
                     <connections>
@@ -83,7 +89,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0G-9F-Maa">
                                 <rect key="frame" x="-83.5" y="69" width="581" height="135"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="h0G-9F-Maa" secondAttribute="height" multiplier="185:43" id="WQc-jc-UlU"/>
+                                    <constraint firstAttribute="width" secondItem="h0G-9F-Maa" secondAttribute="height" multiplier="581:135" id="iju-FL-aAY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="100"/>
                                 <state key="normal" title="Jump">
@@ -91,10 +97,10 @@
                                 </state>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="sausage" translatesAutoresizingMaskIntoConstraints="NO" id="udX-TX-zSJ">
-                                <rect key="frame" x="-619" y="204" width="1652" height="124"/>
+                                <rect key="frame" x="-113" y="256" width="640" height="124"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="124" id="APP-0c-yKa"/>
-                                    <constraint firstAttribute="width" constant="1652" id="TYm-lu-xbs"/>
+                                    <constraint firstAttribute="width" constant="640" id="5y8-Yo-tUH"/>
+                                    <constraint firstAttribute="width" secondItem="udX-TX-zSJ" secondAttribute="height" multiplier="160:31" id="zsX-AX-mzf"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -103,10 +109,10 @@
                         <constraints>
                             <constraint firstItem="8FV-CK-P56" firstAttribute="bottom" secondItem="ZMn-Hz-GcT" secondAttribute="bottom" constant="247" id="3OH-3u-cPC"/>
                             <constraint firstItem="ZMn-Hz-GcT" firstAttribute="centerX" secondItem="05a-mv-Xy7" secondAttribute="centerX" id="GiV-m3-kBJ"/>
-                            <constraint firstItem="udX-TX-zSJ" firstAttribute="top" secondItem="h0G-9F-Maa" secondAttribute="bottom" id="MAX-Pu-cPK"/>
-                            <constraint firstItem="h0G-9F-Maa" firstAttribute="top" secondItem="8FV-CK-P56" secondAttribute="top" constant="25" id="aZq-mJ-RmB"/>
-                            <constraint firstItem="h0G-9F-Maa" firstAttribute="centerX" secondItem="05a-mv-Xy7" secondAttribute="centerX" id="cpP-0P-4hR"/>
-                            <constraint firstItem="udX-TX-zSJ" firstAttribute="centerX" secondItem="h0G-9F-Maa" secondAttribute="centerX" id="d9Z-HF-odz"/>
+                            <constraint firstItem="h0G-9F-Maa" firstAttribute="top" secondItem="8FV-CK-P56" secondAttribute="top" constant="25" id="WWH-0m-60c"/>
+                            <constraint firstItem="udX-TX-zSJ" firstAttribute="top" secondItem="h0G-9F-Maa" secondAttribute="bottom" constant="52" id="Yt7-bn-6ET"/>
+                            <constraint firstItem="h0G-9F-Maa" firstAttribute="centerX" secondItem="05a-mv-Xy7" secondAttribute="centerX" id="bVl-NC-oSI"/>
+                            <constraint firstItem="udX-TX-zSJ" firstAttribute="centerX" secondItem="05a-mv-Xy7" secondAttribute="centerX" id="fWf-7V-v34"/>
                         </constraints>
                     </view>
                     <connections>
@@ -122,6 +128,7 @@
     </scenes>
     <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
+        <image name="lifeBar" width="816" height="200"/>
         <image name="pauseButton" width="200" height="200"/>
         <image name="restartButton" width="200" height="200"/>
         <image name="sausage" width="640" height="320"/>

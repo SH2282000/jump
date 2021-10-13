@@ -47,7 +47,7 @@ class GameScene: SKScene {
         self.label = SKLabelNode(fontNamed: "Chalkduster")
         if let label = self.label {
             label.text = "X Position"
-            label.fontSize = 55
+            label.fontSize = 20
             label.fontColor = SKColor.white
             self.addChild(label)
         }
@@ -88,22 +88,26 @@ class GameScene: SKScene {
                 self.zAcc = data.acceleration.z
 
                 if let player = self.player, let target = self.target, let label = self.label, let ground = self.ground, let starEffect = self.starEffect {
-                    player.centerScene(starEffect: starEffect)
-                    player.explodeContactedBodies(type: target)
-                    //self.xAcc! >= 0 ? player.run(SKAction.scaleX(to: 0.09, duration: 0.1)) : player.run(SKAction.scaleX(to: -0.09, duration: 0.1))
-                    
-                    //create the map
-                    var i = CGFloat(0)
-                    while(i < player.getMaxAltitude()+500) {
-                        if(!self.obstacleAltitude.contains(i)) {
-                            ground.generateNew(altitude: i)
-                            self.obstacleAltitude.append(i)
+                    if(player.life>=0){
+                        player.centerScene(starEffect: starEffect)
+                        player.explodeContactedBodies(type: target)
+                        //self.xAcc! >= 0 ? player.run(SKAction.scaleX(to: 0.09, duration: 0.1)) : player.run(SKAction.scaleX(to: -0.09, duration: 0.1))
+                        
+                        //create the map
+                        var i = CGFloat(0)
+                        while(i < player.getMaxAltitude()+500) {
+                            if(!self.obstacleAltitude.contains(i)) {
+                                ground.generateNew(altitude: i)
+                                self.obstacleAltitude.append(i)
+                            }
+                            i += 400
                         }
-                        i += 400
+                        //update label position on player position
+                        let altitude = Int(player.getPosition().y.rounded())
+                        label.text = "\(Int(altitude)+318)"
+                        label.position = CGPoint(x: player.getPosition().x, y: player.getPosition().y+500)
+                        label.fontColor = SKColor(red: CGFloat(player.tap)/100, green: 1-CGFloat(player.tap)/100, blue: 0.2, alpha: 1)
                     }
-                    //update label position on player position
-                    label.text = "y: \(Int(player.getPosition().y.rounded()))"
-                    label.position = CGPoint(x: player.getPosition().x, y: player.getPosition().y+200)
                 }
              }
           })
@@ -115,9 +119,11 @@ class GameScene: SKScene {
     
     func touchDown(atPoint pos : CGPoint) {
         if let player = self.player, let xAcc = self.xAcc {
-            let direction = CGVector(dx: CGFloat(xAcc*1000), dy: CGFloat(600))
-            player.move(withDirection: direction)
-            player.bumb()
+            if player.life >= 0 {
+                let direction = CGVector(dx: CGFloat(xAcc*1100), dy: CGFloat(750))
+                player.move(withDirection: direction)
+                player.bumb()
+            }
         }
     }
     
@@ -130,37 +136,12 @@ class GameScene: SKScene {
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        /*if let player = self.player {
-            if let n = self.ground?.graphic?.copy() as! SKNode? {
-                n.position.x = CGFloat.random(in: -500...500)
-                n.position.y = CGFloat.random(in: player.getPosition().y + 400...player.getPosition().y + 800)
-                n.alpha = 0.0
-                n.run(SKAction.fadeIn(withDuration: 0.2))
-                n.run(SKAction.applyImpulse(CGVector(dx: 1, dy: 1), duration: 0.1))
-                n.physicsBody?.usesPreciseCollisionDetection = true
-
-                if(counter%4 == 0) { self.addChild(n) }
-            }
-            if let n = self.target?.graphic?.copy() as! SKNode? {
-                n.position.x = CGFloat.random(in: -500...500)
-                n.position.y = CGFloat.random(in: player.getPosition().y+400...player.getPosition().y+800)
-                n.alpha = 0.0
-                n.run(SKAction.fadeIn(withDuration: 0.5))
-                n.run(SKAction.applyImpulse(CGVector(dx: 1, dy: 1), duration: 0.1))
-                n.physicsBody?.usesPreciseCollisionDetection = true
-
-                if(counter%3 == 0) { self.addChild(n) }
-            }
-            counter += 1
-        }*/
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
             self.touchDown(atPoint: t.location(in: self))
-            //let location = t.location(in: self)
-            //let touchedNodes = nodes(at: location)
-            //if(touchedNodes.first!.isEqual(to: restartButton!)) {restartPosition()}
         }
         
     }
